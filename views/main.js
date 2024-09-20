@@ -10,10 +10,11 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setAnimationLoop( animate );
 document.body.appendChild( renderer.domElement );
 
-const geometry = new THREE.ConeGeometry( 1, 1, 64 );
+const geometry = new THREE.ConeGeometry( 1, 2, 64 );
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const cone = new THREE.Mesh( geometry, material );
+cone.position.set(0,0,1)
+scene.add( cone );
 
 camera.position.z = 8;
 camera.position.y = 0;
@@ -46,6 +47,9 @@ function onPointerClick() {
 function animate() {
 
 	renderer.render( scene, camera );
+
+    // cone.rotation.x += 0.01;
+    // cone.rotation.y += 0.01;
 
 }
 
